@@ -1,0 +1,24 @@
+CC = g++
+ALLFILES = lib/assocarr.o lib/clock.o lib/cmd_line.o lib/dgolden.o lib/integrate.o \
+           lib/matrix.o lib/dgesvd.o lib/misc.o lib/normal.o lib/quasi.o lib/Random_Number.o \
+	   lib/splay.o lib/str.o
+ALLHEADERS = lib/array.h lib/assocarr.h lib/clock.h lib/cmd_line.h lib/dgolden.h 
+             lib/dym_arr.h lib/integrate.h lib/matrix.h lib/misc.h lib/normal.h \
+             lib/quasi.h lib/Random_Number.h lib/splay.h lib/str.h
+CCFLAGS = -Ilib -g
+LDFLAGS = 
+LIBRARY = -lm -llapack
+
+Target: ZZZ
+
+#---------------------------------------------------------------
+
+ZZZ.o: ZZZ.C $(ALLHEADERS) Makefile 
+	$(CC) $(CCFLAGS) -c ZZZ.C -o ZZZ.o 
+
+ZZZ: ZZZ.o $(ALLFILES) $(ALLHEADERS) Makefile 
+	g77 $(CCFLAGS) $(LDFLAGS) ZZZ.o $(ALLFILES) -o ZZZ $(LIBRARY)
+
+clean:
+	rm -f -R *.o Makefile.depend ZZZ core *~
+

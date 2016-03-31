@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+#include "cmd_line.h"
+#include "matrix.h"
+#include "misc.h"
+#include "Random_Number.h"
+
+//-------------------------------------------------------
+
+
+
+
+
+
+//-------------------------------------------------------
+
+
+int main(int argc, char *argv[])
+  {
+  cmd_line c_line(argc, argv);
+  int seed1, seed2;
+
+  start_random_number_from_cline(c_line, &seed1, &seed2);
+
+  c_line.assert_all_parms_used();
+
+/* CODE */  
+
+  return 0;
+  }
+
